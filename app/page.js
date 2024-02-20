@@ -37,26 +37,28 @@ export default function Home() {
       return (
         <li
           key={i}
-          className="w-4/5 bg-black rounded-md flex justify-between items-center py-2 px-3 text-white mb-2 "
+          className="w-4/5 bg-black rounded-md flex flex-col sm:flex-row justify-between items-center py-3 sm:py-2 px-3 text-white mb-2 "
         >
-          <h3 className="font-bold">{list.title}</h3>
-          <p className="text-slate-300">{list.desc}</p>
-          <button
-            className="py-1 px-3 bg-blue-500 rounded-lg font-bold transition-all duration-500 ease-in-out hover:text-red-600 hover:bg-white"
-            onClick={() => {
-              completeHandler(i);
-            }}
-          >
-            Complete
-          </button>
-          <button
-            className="py-1 px-3 bg-red-600 rounded-lg font-bold transition-all duration-500 ease-in-out hover:text-red-600 hover:bg-white"
-            onClick={() => {
-              deleteHandler();
-            }}
-          >
-            Delete
-          </button>
+          <h3 className="font-bold mb-1 text-2xl">{list.title}</h3>
+          <p className="text-slate-300 mb-2">{list.desc}</p>
+          <div>
+            <button
+              className="py-1 px-3 bg-green-500 rounded-lg font-bold transition-all sm:mr-1 mr-2 duration-500 ease-in-out hover:text-green-600 hover:bg-white"
+              onClick={() => {
+                completeHandler(i);
+              }}
+            >
+              Complete
+            </button>
+            <button
+              className="py-1 px-3 bg-red-600 rounded-lg font-bold transition-all duration-500 ease-in-out hover:text-red-600 hover:bg-white"
+              onClick={() => {
+                deleteHandler();
+              }}
+            >
+              Delete
+            </button>
+          </div>
         </li>
       );
     });
@@ -65,24 +67,24 @@ export default function Home() {
   return (
     <>
       <div className="bg-black h-lvh">
-        <h1 className="text-6xl font-bold text-center  text-blue-500  py-3">
+        <h1 className="text-4xl sm:text-6xl font-bold text-center  text-blue-500  py-3">
           To Do List
         </h1>
-        <form className="h-20  w-full mt-6 flex  justify-around items-center bg-white  p-3">
+        <form className="h-auto sm:h-20 sm:flex-row w-full mt-6 flex flex-col justify-around items-center bg-white  p-3">
           <input
-            className="w-1/4 bg-slate-800 text-white rounded border-2  border-blue-500 shadow-gray-950 shadow-lg p-2"
+            className="sm:w-1/4 w-1/2 bg-slate-800 text-white rounded border-2  border-blue-500 shadow-gray-950 shadow-lg p-2"
             placeholder="Enter Title"
             value={title}
             onChange={(e) => setTitle(e.target.value)}
           ></input>
           <input
-            className="w-1/4 bg-slate-800 text-white rounded border-2 border-blue-500 shadow-gray-950 shadow-lg p-2"
+            className="sm:w-1/4 w-1/2 mt-2 bg-slate-800 text-white rounded border-2 border-blue-500 shadow-gray-950 shadow-lg p-2"
             placeholder="Enter Description"
             value={desc}
             onChange={(e) => setDesc(e.target.value)}
           ></input>
           <button
-            className="w-1/12 bg-blue-500 py-1 rounded-md text-white font-bold transition-all duration-300  hover:bg-slate-800"
+            className="w-1/4 sm:w-1/12 mt-2 bg-blue-500 py-1 rounded-md text-white font-bold transition-all duration-300  hover:bg-slate-800"
             onClick={handleClick}
           >
             Add
